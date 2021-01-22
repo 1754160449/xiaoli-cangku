@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "40374962-a941-496b-aebd-ea68b2dc33b8",
+		"name": "尾号限行",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "有效",
+			"item": [
+				{
+					"name": "支持城市列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"请求已发送\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(pm.response.text()).to.include(\"查询成功\");\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://v.juhe.cn/xianxing/citys?key=3dc6d4198b8669561b44ab3307948d2d",
+							"protocol": "http",
+							"host": [
+								"v",
+								"juhe",
+								"cn"
+							],
+							"path": [
+								"xianxing",
+								"citys"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "3dc6d4198b8669561b44ab3307948d2d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "尾号限行查询",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"获取完成\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"     pm.expect(pm.response.text()).to.include(\"查询成功\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "{{key_1}}",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "{{city_id}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "2",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_1}}/xianxing/index",
+							"host": [
+								"{{host_1}}"
+							],
+							"path": [
+								"xianxing",
+								"index"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "无效",
+			"item": [
+				{
+					"name": "支持城市列表 Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"请求已发送\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.expect(pm.response.text()).to.include(\"查询成功\");\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://v.juhe.cn/xianxing/citys?key=3dc6d4198b8669561b44ab3307948d2d",
+							"protocol": "http",
+							"host": [
+								"v",
+								"juhe",
+								"cn"
+							],
+							"path": [
+								"xianxing",
+								"citys"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "3dc6d4198b8669561b44ab3307948d2d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "尾号限行查询 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"失败\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"     pm.expect(pm.response.text()).to.not.include(\"查询成功\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "{{key_2}}",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "{{city_id1}}",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "2",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_1}}/xianxing/index",
+							"host": [
+								"{{host_1}}"
+							],
+							"path": [
+								"xianxing",
+								"index"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
