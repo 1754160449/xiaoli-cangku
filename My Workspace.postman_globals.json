@@ -1,0 +1,24 @@
+{
+	"id": "c44eabf0-302f-49cd-861d-e8991ac430ac",
+	"values": [
+		{
+			"key": "host_1",
+			"value": "http://v.juhe.cn",
+			"enabled": true
+		},
+		{
+			"key": "num1",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "city_aaa",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2021-01-22T01:51:58.435Z",
+	"_postman_exported_using": "Postman/7.36.1"
+}
